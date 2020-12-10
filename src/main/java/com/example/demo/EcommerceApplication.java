@@ -33,14 +33,18 @@ public class EcommerceApplication implements CommandLineRunner {
 		categorieRepository.save(new Categorie(null,"smart phone",null,null));
 		categorieRepository.save(new Categorie(null,"Television",null,null));
 		categorieRepository.findAll().forEach(c->{
-			Produit p = new Produit();
-			p.setNom(RandomString.make(6));
-			p.setDescription(RandomString.make(10));
-			p.setPrix(100+rnd.nextInt(100000));
-			p.setValable(rnd.nextBoolean());
-			p.setPromotion(rnd.nextBoolean());
-			p.setCategorie(c);
-			produitRepository.save(p);
+			for(int i=0;i<10;i++){
+				Produit p = new Produit();
+				p.setNom(RandomString.make(6));
+				p.setDescription(RandomString.make(10));
+				p.setPrix(100+rnd.nextInt(100000));
+				p.setValable(rnd.nextBoolean());
+				p.setSelected(rnd.nextBoolean());
+				p.setPromotion(rnd.nextBoolean());
+				p.setCategorie(c);
+				produitRepository.save(p);
+			}
+
 			
 		});
 		
