@@ -17,7 +17,8 @@ import lombok.NoArgsConstructor;
 public class Categorie implements Serializable {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id ; 
-	private String nom ; 
+	private String nom ;
+	private String photo;
 	private String description ;
 	@OneToMany(mappedBy = "categorie")
 	private Collection<Produit> produits ;
